@@ -1,0 +1,23 @@
+:root {
+  --accent: #ff6b00;
+  --bg: #fff;
+  --text: #0b1220;
+  --font: Inter, system-ui, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  font-family: var(--font);
+  margin: 0;
+  color: var(--text);
+  background: var(--bg)
+}
+
+.app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
