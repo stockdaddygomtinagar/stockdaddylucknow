@@ -458,6 +458,22 @@ export default function Header() {
           color: var(--nav-text);
         }
 
+        /* MOBILE NAV FIX */
+.mobile-nav a {
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
+/* Mobile Mentors Button – clean & aligned */
+.mobile-nav .mentor-btn {
+  background: #f1f5ff;
+  color: var(--accent) !important;
+  font-weight: 700;
+  text-align: left;
+  display: block;
+}
+
+
         @media (max-width: 880px) {
           .main-nav { display: none; }
           .menu-toggle { display: block; }

@@ -320,6 +320,9 @@ export default function Mentors() {
 
         {/* ================== MENTOR 2 ================== */}
         <div className="mentor-section reverse">
+          <div className="mentor-photo">
+            <img src={mentor2} alt="Mr. Alok Mishra" />
+          </div>
           <div className="mentor-content">
             <h2>Mr. Alok Mishra</h2>
 
@@ -341,9 +344,9 @@ export default function Mentors() {
             <div className="mentor-exp">7+ Years Experience</div>
           </div>
 
-          <div className="mentor-photo">
+          {/* <div className="mentor-photo">
             <img src={mentor2} alt="Mr. Alok Mishra" />
-          </div>
+          </div> */}
         </div>
       </section>
     </>
