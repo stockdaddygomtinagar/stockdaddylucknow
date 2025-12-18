@@ -16,13 +16,45 @@ if (!MONGODB_URI) {
 }
 
 // Middlewares
+// app.use(express.json({ limit: "50kb" }));
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:5173",
+//       "https://stockdaddylucknow.com",
+//       "https://www.stockdaddylucknow.com",
+//     ],
+//     methods: ["GET", "POST", "OPTIONS"],
+//   })
+// );
+
 app.use(express.json({ limit: "50kb" }));
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://stockdaddylucknow.com",
+  "https://www.stockdaddylucknow.com",
+];
+
 app.use(
   cors({
-    origin: FRONTEND_ORIGIN,
+    origin: function (origin, callback) {
+      // allow requests with no origin (Postman, curl, health checks)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: false,
   })
 );
+
+// 🔥 VERY IMPORTANT (preflight fix)
+app.options("*", cors());
 
 // Health check
 app.get("/", (req, res) =>
