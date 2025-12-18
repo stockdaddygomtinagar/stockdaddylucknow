@@ -1,61 +1,8 @@
-// import { Routes, Route } from "react-router-dom";
-
-// import Header from "./components/Header";
-// import Hero from "./components/Hero";
-// import About from "./components/About";
-// import ClassroomSection from "./components/ClassroomSection";
-// import FeaturesGrid from "./components/FeaturesGrid";
-// import Footer from "./components/Footer";
-// import "./styles/main.css";
-// import LifeAtStockDaddy from "./components/LifeAtStockDaddy";
-// import WhyChooseStockDaddy from "./components/WhyChooseStockDaddy";
-// import CardSlider from "./components/CardSlider";
-// import ContactPageFrontend from "./components/ContactPageFrontend";
-// import ServicesPage from "./components/ServicesPage";
-
-// export default function App() {
-//   const scrollToSection = (id) => {
-//     const element = document.getElementById(id);
-//     if (element) {
-//       element.scrollIntoView({ behavior: "smooth" });
-//     }
-//   };
-
-//   return (
-//     <div className="app-root">
-//       <Header />
-
-//       <Routes>
-//         {/* HOME PAGE */}
-//         <Route
-//           path="/"
-//           element={
-//             <>
-//               <Hero />
-//               <About />
-//               <ClassroomSection />
-//               <FeaturesGrid />
-//               <LifeAtStockDaddy />
-//               <WhyChooseStockDaddy />
-//               <CardSlider />
-//               <ContactPageFrontend />
-//             </>
-//           }
-//         />
-
-//         {/* SERVICES PAGE */}
-//         <Route path="/services" element={<ServicesPage />} />
-//       </Routes>
-
-//       <Footer />
-//     </div>
-//   );
-// }
-
 // ---------------- TOP LEVEL IMPORTS ONLY ----------------
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
+import Mentors from "./components/Mentors";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -67,9 +14,12 @@ import WhyChooseStockDaddy from "./components/WhyChooseStockDaddy";
 import CardSlider from "./components/CardSlider";
 import ContactPageFrontend from "./components/ContactPageFrontend";
 import ServicesPage from "./components/ServicesPage";
+// import TestimonialsSection from "./components/TestimonialsSection";
 
 import "./styles/main.css";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import TestimonialsSection from "./components/TestimonialsSection";
+import CertificationsSection from "./components/CertificationsSection";
 
 // ---------------- APP COMPONENT ----------------
 export default function App() {
@@ -105,10 +55,11 @@ export default function App() {
               <div id="about">
                 <About />
               </div>
-
+              <CertificationsSection />
               <ClassroomSection />
               <FeaturesGrid />
               <LifeAtStockDaddy />
+              <TestimonialsSection />
               <WhyChooseStockDaddy />
               <CardSlider />
 
@@ -122,6 +73,8 @@ export default function App() {
 
         {/* SERVICES PAGE */}
         <Route path="/services" element={<ServicesPage />} />
+
+        <Route path="/mentors" element={<Mentors />} />
       </Routes>
       <FloatingWhatsApp />
       <Footer />
