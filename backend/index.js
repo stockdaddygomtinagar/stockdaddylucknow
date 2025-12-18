@@ -28,7 +28,9 @@ if (!MONGODB_URI) {
 //   })
 // );
 
+// Middlewares
 app.use(express.json({ limit: "50kb" }));
+
 const allowedOrigins = [
   "http://localhost:5173",
   "https://stockdaddylucknow.com",
@@ -38,7 +40,6 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
-      // allow requests with no origin (Postman, curl, health checks)
       if (!origin) return callback(null, true);
 
       if (allowedOrigins.includes(origin)) {
@@ -49,12 +50,8 @@ app.use(
     },
     methods: ["GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: false,
   })
 );
-
-// 🔥 VERY IMPORTANT (preflight fix)
-app.options("*", cors());
 
 // Health check
 app.get("/", (req, res) =>
