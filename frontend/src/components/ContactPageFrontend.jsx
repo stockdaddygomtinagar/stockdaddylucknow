@@ -518,11 +518,17 @@ export default function ContactPageFrontend() {
 
     try {
       // 1) Save to backend (if you want to keep this)
-      const res = await fetch("http://localhost:5000/api/contacts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, createdAt: new Date().toISOString() }),
-      });
+      const res = await fetch(
+        "https://stockdaddylucknow-2.onrender.com/api/contacts",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...form,
+            createdAt: new Date().toISOString(),
+          }),
+        }
+      );
 
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
